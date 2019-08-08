@@ -1,0 +1,5 @@
+package com.aqureshi.HearthStoneEncyclopedia.entity;
+
+public class ResponseDTO {
+
+}

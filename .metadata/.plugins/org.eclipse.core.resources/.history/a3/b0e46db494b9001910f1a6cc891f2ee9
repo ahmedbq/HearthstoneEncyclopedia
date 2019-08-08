@@ -1,0 +1,35 @@
+package com.aqureshi.HearthStoneEncyclopedia.entity;
+
+import java.util.List;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter @Setter @NoArgsConstructor @ToString @EqualsAndHashCode
+public class Card {
+	private @NonNull String cardId;
+	private String dbfId;
+	private String name;
+	private String cardSet;
+	private String type;
+	private String faction;
+	private String rarity;
+	private short cost;
+	private short attack;
+	private short health;
+	private String text;
+	private String flavor;
+	private String artist;
+	private boolean collectable;
+	private boolean elite;
+	private String race;
+	private String imgUrl;
+	private String goldImgUrl;
+	private String locale;
+	private String playerClass;
+	private List<Object> mechanics;
+}

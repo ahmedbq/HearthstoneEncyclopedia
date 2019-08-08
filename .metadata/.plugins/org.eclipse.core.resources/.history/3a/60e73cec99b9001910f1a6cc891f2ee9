@@ -1,0 +1,13 @@
+package com.aqureshi.HearthStoneEncyclopedia.api;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class CardRepository {
+
+	public void getCards() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

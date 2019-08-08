@@ -1,0 +1,23 @@
+package com.aqureshi.HearthStoneEncyclopedia.api;
+
+import org.apache.catalina.connector.Request;
+import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.aqureshi.HearthStoneEncyclopedia.entity.ResponseDTO;
+
+@RestController
+public class CardController {
+
+	@Autowired
+	private CardService cardService;
+	
+	@GetMapping("/api/cards")
+	public ResponseDTO getCards() {
+		
+		return null;
+	}
+	
+}

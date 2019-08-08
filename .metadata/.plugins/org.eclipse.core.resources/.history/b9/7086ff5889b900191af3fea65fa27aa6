@@ -1,0 +1,9 @@
+package com.aqureshi.HearthStoneEncyclopedia.entity;
+
+
+public class ResponseDTO<T> {
+	private T data;
+	
+	private String status;
+	private String message;
+}

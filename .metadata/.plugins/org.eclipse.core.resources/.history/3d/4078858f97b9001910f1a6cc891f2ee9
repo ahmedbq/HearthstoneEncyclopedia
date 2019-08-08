@@ -1,0 +1,54 @@
+package com.aqureshi.HearthStoneEncyclopedia.api;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.aqureshi.HearthStoneEncyclopedia.entity.Card;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@RestController
+public class CardController {
+
+	@Autowired
+	private CardService cardService;
+	
+	Logger log;
+	
+	@GetMapping("/api/cards")
+	public String getCards() throws JsonParseException, JsonMappingException, IOException {
+		final String uri = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/";
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		headers.add("x-rapidapi-host", "omgvamp-hearthstone-v1.p.rapidapi.com");
+		headers.add("x-rapidapi-key", "c0f4827ff0msh92243e80d488e33p191b38jsnb2147971a15a");
+		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+		
+		ResponseEntity<String> data = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
+		ObjectMapper objectMapper = new ObjectMapper();
+		Map<String, List<Card>> map = objectMapper.readValue(data.getBody(), new TypeReference<Map<String, List<Card>>>(){});
+
+//		List<Card> cards = objectMapper.readValue(data.getBody(), new TypeReference<List<Card>>() {});
+
+		return data.getBody();
+	}
+	
+}

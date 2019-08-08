@@ -1,0 +1,7 @@
+package com.aqureshi.HearthStoneEncyclopedia.entity;
+
+import antlr.collections.List;
+
+public class ResponseDTO<T> {
+	private T data;
+}

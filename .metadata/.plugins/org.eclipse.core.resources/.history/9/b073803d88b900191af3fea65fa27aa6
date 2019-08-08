@@ -1,0 +1,5 @@
+package com.aqureshi.HearthStoneEncyclopedia.API;
+
+public class CardRepository {
+
+}
